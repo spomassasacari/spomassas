@@ -118,6 +118,12 @@ h2 {
     <option value="Nhoque de Carne Seca - R$ 33,00">Nhoque de Carne Seca - R$ 33,00</option>
     <option value="Nhoque de Frango - R$ 23,00">Nhoque de Frango - R$ 23,00</option>
     <option value="Nhoque de Carne - R$ 25,00">Nhoque de Carne - R$ 25,00</option>
+  </select>
+
+  <!-- STROGONOFF TRADICIONAL -->
+  <label>Escolha seu Strogonoff Tradicional</label>
+  <select id="strogonoff">
+    <option value="">Selecionar...</option>
     <option value="Strogonoff de Frango - R$ 23,00">Strogonoff de Frango - R$ 23,00</option>
     <option value="Strogonoff de Carne - R$ 26,00">Strogonoff de Carne - R$ 26,00</option>
     <option value="Strogonoff de Camarão - R$ 33,00">Strogonoff de Camarão - R$ 33,00</option>
@@ -208,6 +214,7 @@ h2 {
 <script>
 // Ativa selects com Choices.js mantendo ordem original
 new Choices("#proteina", {searchPlaceholderValue:"Buscar proteína...", itemSelectText:"", allowHTML:true, shouldSort:false});
+new Choices("#strogonoff", {searchPlaceholderValue:"Buscar Strogonoff...", itemSelectText:"", allowHTML:true, shouldSort:false});
 new Choices("#massa", {searchPlaceholderValue:"Buscar massa...", itemSelectText:"", allowHTML:true, shouldSort:false});
 new Choices("#molho", {searchPlaceholderValue:"Buscar molho...", itemSelectText:"", allowHTML:true, shouldSort:false});
 new Choices("#ingredientes", {removeItemButton:true, maxItemCount:7, itemSelectText:"", allowHTML:true, shouldSort:false});
@@ -219,6 +226,7 @@ document.getElementById("pedidoForm").addEventListener("submit", function(e){
   e.preventDefault();
 
   const proteina = document.getElementById("proteina").value;
+  const strogonoff = document.getElementById("strogonoff").value;
   const massa = document.getElementById("massa").value;
   const molho = document.getElementById("molho").value;
   const ingredientes = Array.from(document.getElementById("ingredientes").selectedOptions).map(opt=>opt.value).join(", ");
@@ -234,7 +242,7 @@ document.getElementById("pedidoForm").addEventListener("submit", function(e){
   const texto = 
     `🍝 *Spomassas Acari! Faça seu pedido*\n\n` +
     `🥩 *Escolha sua Proteína:* ${proteina || "Nenhuma"}\n` +
-    `🍝 *Strogonoff Tradicional:* ${proteina.includes("Strogonoff") ? proteina : "Nenhum"}\n` +
+    `🍛 *Strogonoff Tradicional:* ${strogonoff || "Nenhum"}\n` +
     `🍝 *Escolha sua Massa:* ${massa}\n` +
     `🧂 *Escolha seu Molho:* ${molho}\n` +
     `🥗 *Escolha até 7 Ingredientes:* ${ingredientes}\n` +
