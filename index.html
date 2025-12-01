@@ -4,10 +4,7 @@
 <meta charset="UTF-8" />
 <title>Spomassas Acari - Faça seu pedido</title>
 
-<!-- Fonte bonita -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-<!-- Choices.js (select com busca e múltipla seleção) -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
 <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 
@@ -114,7 +111,7 @@ button:hover {
     <option value="Nhoque de Carne - R$ 25,00">Nhoque de Carne - R$ 25,00</option>
   </select>
 
-  <!-- STROGONOFF TRADICIONAL -->
+  <!-- STROGONOFF -->
   <label>Strogonoff Tradicional</label>
   <select id="strogonoff">
     <option value="">Selecionar...</option>
@@ -184,11 +181,17 @@ button:hover {
     <option value="Água com gás - R$ 3,00">Água com gás - R$ 3,00</option>
   </select>
 
-  <!-- NOME E ENDEREÇO -->
+  <!-- DADOS DO CLIENTE -->
   <label>Nome completo</label>
   <input type="text" id="nome" required />
 
-  <label>Endereço (Rua, número, referência)</label>
+  <label>Telefone</label>
+  <input type="text" id="telefone" required />
+
+  <label>Ponto de referência</label>
+  <input type="text" id="referencia" required />
+
+  <label>Endereço</label>
   <textarea id="endereco" required></textarea>
 
   <button type="submit">Enviar Pedido no WhatsApp</button>
@@ -198,16 +201,15 @@ button:hover {
 </div>
 
 <script>
-// Ativa selects com Choices.js mantendo ordem original
-new Choices("#proteina", {searchPlaceholderValue:"Buscar proteína...", itemSelectText:"", allowHTML:true, shouldSort:false});
-new Choices("#strogonoff", {searchPlaceholderValue:"Buscar strogonoff...", itemSelectText:"", allowHTML:true, shouldSort:false});
-new Choices("#massa", {searchPlaceholderValue:"Buscar massa...", itemSelectText:"", allowHTML:true, shouldSort:false});
-new Choices("#molho", {searchPlaceholderValue:"Buscar molho...", itemSelectText:"", allowHTML:true, shouldSort:false});
-new Choices("#ingredientes", {removeItemButton:true, maxItemCount:7, itemSelectText:"", allowHTML:true, shouldSort:false});
-new Choices("#finalizacao", {removeItemButton:true, itemSelectText:"", allowHTML:true, shouldSort:false});
-new Choices("#bebidas", {removeItemButton:true, itemSelectText:"", allowHTML:true, shouldSort:false});
+// Choices.js
+new Choices("#proteina", { itemSelectText:"", allowHTML:true, shouldSort:false });
+new Choices("#strogonoff", { itemSelectText:"", allowHTML:true, shouldSort:false });
+new Choices("#massa", { itemSelectText:"", allowHTML:true, shouldSort:false });
+new Choices("#molho", { itemSelectText:"", allowHTML:true, shouldSort:false });
+new Choices("#ingredientes", { removeItemButton:true, maxItemCount:7, itemSelectText:"", allowHTML:true, shouldSort:false });
+new Choices("#finalizacao", { removeItemButton:true, itemSelectText:"", allowHTML:true, shouldSort:false });
+new Choices("#bebidas", { removeItemButton:true, itemSelectText:"", allowHTML:true, shouldSort:false });
 
-// Envio para WhatsApp
 document.getElementById("pedidoForm").addEventListener("submit", function(e){
   e.preventDefault();
 
@@ -215,25 +217,30 @@ document.getElementById("pedidoForm").addEventListener("submit", function(e){
   const strogonoff = document.getElementById("strogonoff").value;
   const massa = document.getElementById("massa").value;
   const molho = document.getElementById("molho").value;
-  const ingredientes = Array.from(document.getElementById("ingredientes").selectedOptions).map(opt=>opt.value).join(", ");
-  const finalizacao = Array.from(document.getElementById("finalizacao").selectedOptions).map(opt=>opt.value).join(", ");
-  const bebidas = Array.from(document.getElementById("bebidas").selectedOptions).map(opt=>opt.value).join(", ");
+  const ingredientes = Array.from(document.getElementById("ingredientes").selectedOptions).map(o=>o.value).join(", ");
+  const finalizacao = Array.from(document.getElementById("finalizacao").selectedOptions).map(o=>o.value).join(", ");
+  const bebidas = Array.from(document.getElementById("bebidas").selectedOptions).map(o=>o.value).join(", ");
   const nome = document.getElementById("nome").value;
+  const telefone = document.getElementById("telefone").value;
+  const referencia = document.getElementById("referencia").value;
   const endereco = document.getElementById("endereco").value;
 
-  const numero = "5521995729816";
+  const numero = "5521989959161";
 
   const texto = 
-    `🍝 *NOVO PEDIDO SPOMASSAS*\n\n` +
-    `👤 *Cliente:* ${nome}\n` +
-    `📍 *Endereço:* ${endereco}\n\n` +
-    `🥩 *Proteína:* ${proteina || "Nenhuma"}\n` +
-    `🍛 *Strogonoff:* ${strogonoff || "Nenhum"}\n` +
-    `🍝 *Massa:* ${massa}\n` +
-    `🧂 *Molho:* ${molho}\n` +
-    `🥗 *Ingredientes:* ${ingredientes}\n` +
-    `✨ *Finalização:* ${finalizacao}\n` +
-    `🥤 *Bebidas:* ${bebidas || "Nenhuma"}\n`;
+    `🍝 *Spomassas Acari! Faça seu pedido*\n\n` +
+    `🥩 *Escolha sua Proteína:* ${proteina || "Nenhuma"}\n` +
+    `🍛 *Strogonoff Tradicional:* ${strogonoff || "Nenhum"}\n` +
+    `🍝 *Escolha sua Massa:* ${massa}\n` +
+    `🧂 *Escolha seu Molho:* ${molho}\n` +
+    `🥗 *Escolha até 7 Ingredientes:* ${ingredientes}\n` +
+    `✨ *Escolha sua Finalização:* ${finalizacao}\n` +
+    `🥤 *Escolha suas Bebidas:* ${bebidas || "Nenhuma"}\n\n` +
+    `👤 *Nome Completo:* ${nome}\n` +
+    `📍 *Endereço:* ${endereco}\n` +
+    `📌 *Ponto de Referência:* ${referencia}\n` +
+    `📞 *Telefone:* ${telefone}\n\n` +
+    `💛 *Spomassas Acari agradece seu pedido!*`;
 
   const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
   window.open(url, "_blank");
