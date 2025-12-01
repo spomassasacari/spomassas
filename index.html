@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Spomassas Acari - Faça seu pedido</title>
+
+<!-- Fonte bonita -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<!-- Choices.js (select com busca e múltipla seleção) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
+<script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
+
+<style>
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f2f5f7;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 540px;
+  background: #fff;
+  margin-top: 40px;
+  padding: 30px;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+label {
+  font-weight: 600;
+  margin-top: 20px;
+  display: block;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 12px;
+  margin-top: 7px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+textarea {
+  height: 90px;
+}
+
+button {
+  width: 100%;
+  padding: 15px;
+  margin-top: 30px;
+  background: #25D366;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1ebe5d;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<h1>🍝 Spomassas Acari<br>Faça seu pedido!</h1>
+
+<form id="pedidoForm">
+
+  <!-- PROTEÍNA -->
+  <label>Escolha sua proteína</label>
+  <select id="proteina" required>
+    <option value="">Selecionar...</option>
+    <option value="Macarrão sem proteína - R$ 17,00">Macarrão sem proteína - R$ 17,00</option>
+    <option value="Macarrão com Frango - R$ 19,00">Macarrão com Frango - R$ 19,00</option>
+    <option value="Macarrão com Carne - R$ 22,00">Macarrão com Carne - R$ 22,00</option>
+    <option value="Macarrão com Almôndegas - R$ 23,00">Macarrão com Almôndegas - R$ 23,00</option>
+    <option value="Macarrão com Camarão - R$ 29,00">Macarrão com Camarão - R$ 29,00</option>
+    <option value="Macarrão com Carne Seca - R$ 29,00">Macarrão com Carne Seca - R$ 29,00</option>
+    <option value="Panqueca de Frango - R$ 21,00">Panqueca de Frango - R$ 21,00</option>
+    <option value="Panqueca de Carne - R$ 24,00">Panqueca de Carne - R$ 24,00</option>
+    <option value="Panqueca de Camarão - R$ 31,00">Panqueca de Camarão - R$ 31,00</option>
+    <option value="Lasanha de Frango - R$ 21,00">Lasanha de Frango - R$ 21,00</option>
+    <option value="Lasanha de Carne - R$ 24,00">Lasanha de Carne - R$ 24,00</option>
+    <option value="Ravioli de Frango - R$ 25,00">Ravioli de Frango - R$ 25,00</option>
+    <option value="Ravioli de Carne - R$ 27,00">Ravioli de Carne - R$ 27,00</option>
+    <option value="Ravioli de Camarão - R$ 35,00">Ravioli de Camarão - R$ 35,00</option>
+    <option value="Ravioli de Carne Seca - R$ 35,00">Ravioli de Carne Seca - R$ 35,00</option>
+    <option value="Capeletti de Frango - R$ 25,00">Capeletti de Frango - R$ 25,00</option>
+    <option value="Capeletti de Carne - R$ 27,00">Capeletti de Carne - R$ 27,00</option>
+    <option value="Capeletti de Camarão - R$ 35,00">Capeletti de Camarão - R$ 35,00</option>
+    <option value="Capeletti de Carne Seca - R$ 35,00">Capeletti de Carne Seca - R$ 35,00</option>
+    <option value="Risoto de Frango - R$ 21,00">Risoto de Frango - R$ 21,00</option>
+    <option value="Risoto de Carne - R$ 24,00">Risoto de Carne - R$ 24,00</option>
+    <option value="Risoto de Camarão - R$ 31,00">Risoto de Camarão - R$ 31,00</option>
+    <option value="Risoto de Carne Seca - R$ 31,00">Risoto de Carne Seca - R$ 31,00</option>
+    <option value="Nhoque de Camarão - R$ 33,00">Nhoque de Camarão - R$ 33,00</option>
+    <option value="Nhoque de Carne Seca - R$ 33,00">Nhoque de Carne Seca - R$ 33,00</option>
+    <option value="Nhoque de Frango - R$ 23,00">Nhoque de Frango - R$ 23,00</option>
+    <option value="Nhoque de Carne - R$ 25,00">Nhoque de Carne - R$ 25,00</option>
+  </select>
+
+  <!-- STROGONOFF TRADICIONAL -->
+  <label>Strogonoff Tradicional</label>
+  <select id="strogonoff">
+    <option value="">Selecionar...</option>
+    <option value="Strogonoff de Frango - R$ 23,00">Strogonoff de Frango - R$ 23,00</option>
+    <option value="Strogonoff de Carne - R$ 26,00">Strogonoff de Carne - R$ 26,00</option>
+    <option value="Strogonoff de Camarão - R$ 33,00">Strogonoff de Camarão - R$ 33,00</option>
+  </select>
+
+  <!-- MASSA -->
+  <label>Escolha a massa</label>
+  <select id="massa" required>
+    <option value="">Selecionar...</option>
+    <option value="Penne">Penne</option>
+    <option value="Talharim">Talharim</option>
+    <option value="Espaguete">Espaguete</option>
+    <option value="Parafuso">Parafuso</option>
+  </select>
+
+  <!-- MOLHO -->
+  <label>Escolha o molho</label>
+  <select id="molho" required>
+    <option value="">Selecionar...</option>
+    <option value="Branco">Branco</option>
+    <option value="Vermelho">Vermelho</option>
+    <option value="Rose">Rose</option>
+    <option value="Quatro queijos">Quatro queijos</option>
+  </select>
+
+  <!-- INGREDIENTES -->
+  <label>Escolha até 7 ingredientes</label>
+  <select id="ingredientes" multiple required>
+    <option value="Queijo Mussarela">Queijo Mussarela</option>
+    <option value="Ervilha">Ervilha</option>
+    <option value="Salsicha">Salsicha</option>
+    <option value="Pimentão">Pimentão</option>
+    <option value="Calabresa">Calabresa</option>
+    <option value="Cebola">Cebola</option>
+    <option value="Bacon">Bacon</option>
+    <option value="Palmito">Palmito</option>
+    <option value="Azeitona">Azeitona</option>
+    <option value="Tomate">Tomate</option>
+    <option value="Champignon">Champignon</option>
+    <option value="Presunto">Presunto</option>
+    <option value="Ovo de codorna">Ovo de codorna</option>
+    <option value="Salsinha">Salsinha</option>
+    <option value="Milho">Milho</option>
+  </select>
+
+  <!-- FINALIZAÇÃO -->
+  <label>Finalização</label>
+  <select id="finalizacao" multiple required>
+    <option value="Alho frito">Alho frito</option>
+    <option value="Queijo ralado">Queijo ralado</option>
+    <option value="Orégano">Orégano</option>
+    <option value="Pimenta calabresa">Pimenta calabresa</option>
+  </select>
+
+  <!-- BEBIDAS -->
+  <label>Bebidas</label>
+  <select id="bebidas" multiple>
+    <option value="Guaravita - R$ 2,00">Guaravita - R$ 2,00</option>
+    <option value="Coca Cola 2 L - R$ 12,00">Coca Cola 2 L - R$ 12,00</option>
+    <option value="Coca Cola 600 ml - R$ 7,00">Coca Cola 600 ml - R$ 7,00</option>
+    <option value="Coca cola lata - R$ 5,00">Coca cola lata - R$ 5,00</option>
+    <option value="Refrigerante 2 litros sabores - R$ 10,00">Refrigerante 2 litros sabores - R$ 10,00</option>
+    <option value="Água sem gás - R$ 2,00">Água sem gás - R$ 2,00</option>
+    <option value="Água com gás - R$ 3,00">Água com gás - R$ 3,00</option>
+  </select>
+
+  <!-- NOME E ENDEREÇO -->
+  <label>Nome completo</label>
+  <input type="text" id="nome" required />
+
+  <label>Endereço (Rua, número, referência)</label>
+  <textarea id="endereco" required></textarea>
+
+  <button type="submit">Enviar Pedido no WhatsApp</button>
+
+</form>
+
+</div>
+
+<script>
+// Ativa selects com Choices.js mantendo ordem original
+new Choices("#proteina", {searchPlaceholderValue:"Buscar proteína...", itemSelectText:"", allowHTML:true, shouldSort:false});
+new Choices("#strogonoff", {searchPlaceholderValue:"Buscar strogonoff...", itemSelectText:"", allowHTML:true, shouldSort:false});
+new Choices("#massa", {searchPlaceholderValue:"Buscar massa...", itemSelectText:"", allowHTML:true, shouldSort:false});
+new Choices("#molho", {searchPlaceholderValue:"Buscar molho...", itemSelectText:"", allowHTML:true, shouldSort:false});
+new Choices("#ingredientes", {removeItemButton:true, maxItemCount:7, itemSelectText:"", allowHTML:true, shouldSort:false});
+new Choices("#finalizacao", {removeItemButton:true, itemSelectText:"", allowHTML:true, shouldSort:false});
+new Choices("#bebidas", {removeItemButton:true, itemSelectText:"", allowHTML:true, shouldSort:false});
+
+// Envio para WhatsApp
+document.getElementById("pedidoForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  const proteina = document.getElementById("proteina").value;
+  const strogonoff = document.getElementById("strogonoff").value;
+  const massa = document.getElementById("massa").value;
+  const molho = document.getElementById("molho").value;
+  const ingredientes = Array.from(document.getElementById("ingredientes").selectedOptions).map(opt=>opt.value).join(", ");
+  const finalizacao = Array.from(document.getElementById("finalizacao").selectedOptions).map(opt=>opt.value).join(", ");
+  const bebidas = Array.from(document.getElementById("bebidas").selectedOptions).map(opt=>opt.value).join(", ");
+  const nome = document.getElementById("nome").value;
+  const endereco = document.getElementById("endereco").value;
+
+  const numero = "5521995729816";
+
+  const texto = 
+    `🍝 *NOVO PEDIDO SPOMASSAS*\n\n` +
+    `👤 *Cliente:* ${nome}\n` +
+    `📍 *Endereço:* ${endereco}\n\n` +
+    `🥩 *Proteína:* ${proteina || "Nenhuma"}\n` +
+    `🍛 *Strogonoff:* ${strogonoff || "Nenhum"}\n` +
+    `🍝 *Massa:* ${massa}\n` +
+    `🧂 *Molho:* ${molho}\n` +
+    `🥗 *Ingredientes:* ${ingredientes}\n` +
+    `✨ *Finalização:* ${finalizacao}\n` +
+    `🥤 *Bebidas:* ${bebidas || "Nenhuma"}\n`;
+
+  const url = `https://wa.me/${numero}?text=${encodeURIComponent(texto)}`;
+  window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>
